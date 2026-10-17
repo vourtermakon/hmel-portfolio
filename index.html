@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Портфолио Анастасии Хмель</title>
+<meta name="description" content="Анастасия Хмель — рилсмейкер и монтажёр коротких видео. Работы, цифры, контакты.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Портфолио Анастасии Хмель">
+<meta property="og:description" content="Рилсмейкер и монтажёр коротких видео. Ролик для клиента — 35 000 просмотров при 887 подписчиках.">
+<meta property="og:image" content="media/01-psy-humor.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+<style>
+  /* базовый сброс (в артефакте он приходил снаружи) */
+  html{ color-scheme: light dark; }
+  body{ margin:0; font:14px system-ui, sans-serif; }
+  img{ max-width:100%; }
+  [hidden]{ display:none !important; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap">
+
+<style>
+/* Макет: одна колонка до 980px; карточка работы — вертикальное видео слева, описание справа, на телефоне стопкой. */
+:root{
+  --bg:#faf8f6;
+  --surface:#ffffff;
+  --fg:#1a1715;
+  --muted:#6b625c;
+  --line:#e4ded8;
+  --accent:#9e2a2b;
+  --accent-soft:rgba(158,42,43,.07);
+
+  --display:'Oswald','Helvetica Neue',Arial,sans-serif;
+  --body:'Manrope','Segoe UI',Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141210;
+    --surface:#1e1b19;
+    --fg:#f1ece7;
+    --muted:#a39991;
+    --line:#2f2b28;
+    --accent:#d9636a;
+    --accent-soft:rgba(217,99,106,.12);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141210;
+  --surface:#1e1b19;
+  --fg:#f1ece7;
+  --muted:#a39991;
+  --line:#2f2b28;
+  --accent:#d9636a;
+  --accent-soft:rgba(217,99,106,.12);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:940px;
+  margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:48px 72px;
+}
+
+/* ---------- шапка ---------- */
+.name{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(32px,7vw,52px);
+  line-height:1.05;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+  margin:0;
+  text-wrap:balance;
+}
+.role{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(15px,2.6vw,19px);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin:10px 0 0;
+}
+.intro{
+  max-width:60ch;
+  margin:22px 0 0;
+  color:var(--fg);
+}
+
+.stat{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:4px 14px;
+  margin-top:28px;
+  padding:18px 20px;
+  background:var(--accent-soft);
+  border-left:3px solid var(--accent);
+}
+.stat b{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(28px,6vw,40px);
+  line-height:1;
+  color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.stat span{color:var(--muted);font-size:15px;max-width:46ch}
+
+.contacts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:26px;
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  border-radius:2px;
+  padding:7px 12px;
+  font-size:14px;
+  color:var(--fg);
+}
+.chip .k{color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.chip .v{font-weight:600;user-select:all}
+a.v{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+a.v:hover{text-decoration-thickness:2px}
+.copy{
+  border:0;background:transparent;color:var(--muted);
+  font-family:var(--body);font-size:12px;cursor:pointer;padding:2px 4px;
+  border-radius:2px;
+}
+.copy:hover{color:var(--accent)}
+.copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- разделы ---------- */
+.section{margin-top:56px}
+.section-head{
+  display:flex;align-items:center;gap:14px;
+  margin:0 0 4px;
+}
+.section-head h2{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:14px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin:0;
+  white-space:nowrap;
+}
+.section-head .rule{flex:1;height:1px;background:var(--line)}
+.section-note{color:var(--muted);font-size:14px;margin:0 0 26px}
+
+/* ---------- карточка работы ---------- */
+.work{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:26px;
+  padding:24px 0;
+  border-top:1px solid var(--line);
+}
+.work:first-of-type{border-top:0;padding-top:4px}
+
+.frame{
+  position:relative;
+  width:100%;
+  max-width:100%;
+  aspect-ratio:9/16;
+  background:#000;
+  border-radius:3px;
+  overflow:hidden;
+}
+.frame video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.work-body{min-width:0}
+.work h3{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:21px;
+  line-height:1.2;
+  margin:0 0 6px;
+  text-wrap:balance;
+}
+.meta{
+  color:var(--muted);
+  font-size:13.5px;
+  margin:0 0 12px;
+  font-variant-numeric:tabular-nums;
+}
+.did{margin:0 0 12px;max-width:52ch}
+.did .label{
+  display:block;
+  font-size:11.5px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:3px;
+}
+.numbers{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:14px;padding:0;list-style:none;
+}
+.numbers li{
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:5px 10px;
+  font-size:13px;
+  font-variant-numeric:tabular-nums;
+}
+.numbers li b{font-weight:700}
+.numbers li.hl{border-color:var(--accent);color:var(--accent)}
+
+footer{
+  margin-top:64px;
+  padding-top:20px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:13.5px;
+}
+
+@media (max-width:720px){
+  .work{grid-template-columns:1fr;gap:16px}
+  .frame{max-width:260px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <h1 class="name">Анастасия Хмель</h1>
+    <p class="role">Рилсмейкер · монтажёр коротких видео</p>
+
+    <p class="intro">
+      Снимаю и монтирую короткие вертикальные видео. По образованию режиссёр драмы —
+      работаю с человеком в кадре: ставлю речь, подачу и пластику, снимаю зажим у того,
+      кто камеры не любит.
+    </p>
+
+    <div class="stat">
+      <b>35 000</b>
+      <span>просмотров у ролика, снятого для аккаунта с 887 подписчиками</span>
+    </div>
+
+    <div class="contacts">
+      <span class="chip"><span class="k">Telegram</span><a class="v" id="c-tg" href="https://t.me/hmelnaia" target="_blank" rel="noopener">@hmelnaia</a><button class="copy" data-copy="c-tg">копировать</button></span>
+      <span class="chip"><span class="k">Почта</span><span class="v" id="c-mail">hmelnaianastasia@gmail.com</span><button class="copy" data-copy="c-mail">копировать</button></span>
+      <span class="chip"><span class="k">Город</span><span class="v">Московская область</span></span>
+    </div>
+  </header>
+
+  <!-- Коммерческие работы -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Работы для заказчиков</h2>
+      <span class="rule"></span>
+    </div>
+    <p class="section-note">Съёмка на телефон, монтаж в CapCut.</p>
+
+    <article class="work">
+      <div class="frame">
+        <video src="media/01-psy-humor.mp4" poster="media/01-psy-humor.jpg" controls preload="metadata" playsinline></video>
+      </div>
+      <div class="work-body">
+        <h3>«Иногда нежность начинается с поцелуя»</h3>
+        <p class="meta">Частная практика гештальт-терапевта и супервизора · Instagram · 0:15</p>
+        <p class="did">
+          <span class="label">Что делала</span>
+          Сценарий, съёмка, монтаж, подбор музыки, публикация с текстом к посту.
+        </p>
+        <p>Юмористический ролик про отношения для профессионального аккаунта психотерапевта.</p>
+        <ul class="numbers">
+          <li class="hl"><b>35 000</b> просмотров</li>
+          <li><b>2 323</b> лайка</li>
+          <li><b>28</b> комментариев</li>
+          <li>аккаунт — <b>887</b> подписчиков</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="frame">
+        <video src="media/02-psy-groups.mp4" poster="media/02-psy-groups.jpg" controls preload="metadata" playsinline></video>
+      </div>
+      <div class="work-body">
+        <h3>Промо набора в терапевтические группы</h3>
+        <p class="meta">Тот же клиент · Instagram · 0:19</p>
+        <p class="did">
+          <span class="label">Что делала</span>
+          Съёмка и монтаж.
+        </p>
+        <p>Рекламная задача, решённая через метафору вместо прямого объявления о наборе.</p>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="frame">
+        <video src="media/03-guesthouse.mp4" poster="media/03-guesthouse.jpg" controls preload="metadata" playsinline></video>
+      </div>
+      <div class="work-body">
+        <h3>Гостевой дом «Новый Херсонес»</h3>
+        <p class="meta">Рекламный ролик · 0:48</p>
+        <p class="did">
+          <span class="label">Что делала</span>
+          Съёмка и монтаж.
+        </p>
+        <p>Интерьеры и территория: съёмка пространства, где камера ведёт зрителя по дому.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Сцена -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Сцена и движение</h2>
+      <span class="rule"></span>
+    </div>
+    <p class="section-note">Съёмка живого выступления: свет, движение, работа с артистом в кадре.</p>
+
+    <article class="work">
+      <div class="frame">
+        <video src="media/04-cabaret.mp4" poster="media/04-cabaret.jpg" controls preload="metadata" playsinline></video>
+      </div>
+      <div class="work-body">
+        <h3>Willkommen im Cabaret</h3>
+        <p class="meta">Сценический номер · 1:10</p>
+        <p class="did">
+          <span class="label">Что делала</span>
+          Съёмка и монтаж.
+        </p>
+        <p>Музыкальный номер целиком: артист, микрофон, сценический свет.</p>
+      </div>
+    </article>
+
+    <article class="work">
+      <div class="frame">
+        <video src="media/05-kapustnik.mp4" poster="media/05-kapustnik.jpg" controls preload="metadata" playsinline></video>
+      </div>
+      <div class="work-body">
+        <h3>Капустник</h3>
+        <p class="meta">Сценическое выступление · 1:22</p>
+        <p class="did">
+          <span class="label">Что делала</span>
+          Съёмка и монтаж.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Личное -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Личное</h2>
+      <span class="rule"></span>
+    </div>
+    <p class="section-note">Не по заказу — для себя.</p>
+
+    <article class="work">
+      <div class="frame">
+        <video src="media/06-lubov.mp4" poster="media/06-lubov.jpg" controls preload="metadata" playsinline></video>
+      </div>
+      <div class="work-body">
+        <h3>Кафе</h3>
+        <p class="meta">Лайфстайл · 0:16</p>
+        <p class="did">
+          <span class="label">Что делала</span>
+          Съёмка и монтаж.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    Снимаю на iPhone 14&nbsp;Pro, монтирую в CapCut и InShot.
+    Готова к съёмочным дням в Москве и к командировкам.
+  </footer>
+
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.copy);
+    if(!el) return;
+    var text = el.textContent.trim();
+    var done = function(){
+      var old = btn.textContent;
+      btn.textContent = 'скопировано';
+      setTimeout(function(){ btn.textContent = old; }, 1600);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ select(el); });
+    } else {
+      select(el);
+    }
+  });
+});
+function select(el){
+  try{
+    var r = document.createRange();
+    r.selectNodeContents(el);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  }catch(e){}
+}
+</script>
+</body>
+</html>
